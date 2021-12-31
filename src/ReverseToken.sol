@@ -24,4 +24,8 @@ contract ReverseToken is ERC20("Reverse Token", "REV", 18), Trust(msg.sender) {
         require(liquidityPool == address(0), "IMMUTABLE_LP");
         liquidityPool = _liquidityPool;
     }
+
+    function mint(address to, uint256 amount) external requiresTrust {
+        _mint(to, amount);
+    }
 }

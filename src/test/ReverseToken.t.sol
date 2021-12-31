@@ -1,11 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.11;
 
-import "ds-test/test.sol";
+import "./utils/ReverseTokenTest.sol";
 
-contract ContractTest is DSTest {
-    function setUp() public {}
-
+contract ContractTest is ReverseTokenTest {
     function testExample() public {
         assertTrue(true);
     }

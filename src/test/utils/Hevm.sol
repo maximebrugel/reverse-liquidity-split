@@ -58,4 +58,16 @@ abstract contract Hevm {
 
     // Tells the evm to expect that the next call reverts with specified error bytes.
     function expectRevert(bytes calldata expectedError) public virtual;
+
+    // Set block.basefee (newBasefee)
+    function fee(uint256) public virtual;
+
+    // Record all storage reads and writes
+    function record() public virtual;
+
+    // Gets all accessed reads and write slot from a recording session, for a given address
+    function accesses(address)
+        public
+        virtual
+        returns (bytes32[] memory reads, bytes32[] memory writes);
 }

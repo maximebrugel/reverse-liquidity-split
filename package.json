@@ -20,7 +20,7 @@
       "solhint": "yarn solhint:check --fix",
       "solhint:check": "solhint --config ./.solhint.json \"src/**/*.sol\"",
       "build": "forge build",
-      "test": "forge test",
+      "test": "forge test --ffi",
       "snapshot": "forge snapshot"
     }
   }
