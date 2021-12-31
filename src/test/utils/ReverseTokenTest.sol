@@ -6,10 +6,10 @@ import "ds-test/test.sol";
 import "../mocks/MockDAI.sol";
 import "../../ReverseToken.sol";
 
-
 abstract contract ReverseTokenTest is DSTest {
     Hevm internal constant hevm = Hevm(HEVM_ADDRESS);
-    address internal constant router = 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D;
+    address internal constant router =
+        0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D;
 
     ReverseToken internal reverseToken;
     MockDAI internal mockDAI;
