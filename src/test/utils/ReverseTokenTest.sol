@@ -48,6 +48,13 @@ abstract contract ReverseTokenTest is DSTest {
         mockDAI.mint(alice, 1000 ether);
     }
 
+    function getAmountOut(uint amountIn, uint reserveIn, uint reserveOut) internal pure returns (uint amountOut) {
+        uint amountInWithFee = amountIn * 997;
+        uint numerator = amountInWithFee * reserveOut ;
+        uint denominator = (reserveIn * 1000) + amountInWithFee;
+        amountOut = numerator / denominator;
+    }
+
     function generateAddress(bytes memory seed)
         internal
         pure
