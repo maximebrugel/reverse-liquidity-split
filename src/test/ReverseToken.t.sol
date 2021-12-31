@@ -3,8 +3,8 @@ pragma solidity 0.8.11;
 
 import "./utils/ReverseTokenTest.sol";
 
-contract ContractTest is ReverseTokenTest {
-    function testExample() public {
-        assertTrue(true);
+contract ReverseContractTest is ReverseTokenTest {
+    function testInitialQuote() public {
+        // TODO check amounts out using router
     }
 }
