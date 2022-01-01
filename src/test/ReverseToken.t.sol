@@ -49,4 +49,22 @@ contract ReverseContractTest is ReverseTokenTest {
         uint256[] memory amounts = router.getAmountsOut(1 ether, path);
         assertEq(amounts[1], getAmountOut(1 ether, 500 ether, 1000 ether));
     }
+
+    function testSwap() public {
+        reverseToken.setLiquidityPool(pair);
+
+        // Path : REV => DAI
+        address[] memory path = new address[](2);
+        path[0] = address(reverseToken);
+        path[1] = address(mockDAI);
+
+        reverseToken.split(2, 1000 ether);
+        reverseToken.mint(address(this), 1 ether);
+
+        address receiver = generateAddress("receiver");
+        uint256 expected = getAmountOut(1 ether, 500 ether, 1000 ether);
+        router.swapExactTokensForTokens(1 ether, 0, path, receiver, block.timestamp);
+
+        assertEq(mockDAI.balanceOf(receiver), expected);
+    }
 }
